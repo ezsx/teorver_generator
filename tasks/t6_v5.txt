@@ -1,0 +1,33 @@
+6
+&&&
+Бросаются две игральные кости. Определить вероятность того, что: а) сумма числа очков превосходит 6; б) произведение числа очков превосходит 6; в) произведение числа очков не делится на 6.
+&&&
+def task6_v5():
+    n = 36
+    number = random.randint(4, 8)
+    m1 = 0
+    m2 = 0
+    m3 = 0
+
+    # calculation
+    for i in range(1, 7):
+        for j in range(1, 7):
+            if i + j > number:
+                m1 += 1
+            if i * j > number:
+                m2 += 1
+            if (i * j) % number != 0:
+                m3 += 1
+    resultA = m1 / n
+    resultB = m2 / n
+    resultC = m3 / n
+
+    # update task description
+    v.update({'v0': veggies, 'v1': saladReq})
+
+    # update result
+    res.update({'a)': resultA, 'b)': resultB, 'c)': resultC})
+
+
+task6_v5()
+
