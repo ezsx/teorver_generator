@@ -1,0 +1,23 @@
+8
+&&&
+На участке работают {v0} мужчин и {v1} женщины. По табельным номерам отобраны {v2} человека. Найти вероятность того, что все отобранные лица окажутся мужчинами.
+&&&
+def task8_v5():
+    men = random.randint(4, 10)
+    women = random.randint(4, 10)
+    choice = random.randint(2, 4)
+
+    n = math.comb(men + women, choice)
+    m = math.comb(men, choice)
+
+    result = m / n
+
+    # update task description
+    v.update({'v0': men, 'v1': women, 'v2': choice})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task8_v5()
+
