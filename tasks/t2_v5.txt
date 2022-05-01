@@ -22,7 +22,6 @@ def task2_v5():
         result += combChooseWomen * combChooseMen
 
     res.update({'tsk': result})
-    print(res)
 
 
 task2_v5()
