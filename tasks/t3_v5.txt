@@ -1,0 +1,21 @@
+3
+&&&
+У врача есть {v0} вида одного лекарства, {v1} вида — другого и {v2} вида – третьего. В течение {v3} дней он каждый день предлагает больному по одному лекарству. Сколькими способами он может выделить больному лекарства?
+&&&
+def task3_v5():
+    firstKind = random.randint(1, 5)
+    secondKind = random.randint(1, 5)
+    thirdKind = random.randint(1, 5)
+    days = firstKind + secondKind + thirdKind
+
+    # update task description
+    v.update({'v0': firstKind, 'v1': secondKind, 'v2': thirdKind, 'v3': days})
+
+    # calculation
+    result = math.comb(days, firstKind) * math.comb(days - firstKind, secondKind)
+
+    # update result
+    res.update({'tsk': result})
+
+task3_v5()
+
