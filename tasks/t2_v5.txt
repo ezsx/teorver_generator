@@ -20,7 +20,7 @@ def task2_v5():
         combChooseWomen = math.comb(amountOfWomen, chosenWomen)
         combChooseMen = math.comb(amountOfMen, amountToChooseFrom - chosenWomen)
         result += combChooseWomen * combChooseMen
-
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
     res.update({'tsk': result})
 
 

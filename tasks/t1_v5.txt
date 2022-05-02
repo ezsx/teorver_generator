@@ -8,9 +8,12 @@ def task1_v5():
     skrip = random.randint(3, 10)
     ban = random.randint(3, 10)
     nominalo = random.randint(2, min([pian, skrip, ban]))
+
     # запоминаем переменные
     v.update({'v0': pian, 'v1': skrip, 'v2': ban, 'v3': nominalo})
+
     result = math.comb(pian,nominalo)*math.comb(skrip,nominalo)*math.comb(ban,nominalo)
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
     # записываем результат
     res.update({'tsk': result})
 task1_v5()

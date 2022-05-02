@@ -13,7 +13,7 @@ def task3_v5():
 
     # calculation
     result = math.comb(days, firstKind) * math.comb(days - firstKind, secondKind)
-
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
     # update result
     res.update({'tsk': result})
 

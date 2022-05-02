@@ -12,6 +12,7 @@ def task11_v5():
     # calculation
     temp = p * p * p * q * q if kindToFind == "стандартные" else p * p * q * q * q
     result = math.comb(items, findItems) * temp
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': p, 'v1': items, 'v2': findItems, 'v3': kindToFind})
