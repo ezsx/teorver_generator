@@ -15,11 +15,12 @@ def F(task, variant, answer):
     # 1)что компилируем 2)как называем 3)в каком "моде" компилим
     x = compile(tsk[2], 'test', 'exec')
     exec(x)
+
     if answer:
-        return str("    Задание: " + str(task[1]) + tsk[1].format(**v) + "Ответ: " + str(res['tsk']) + "\n")
+        return str("    Задание: " + str(tsk[1]) + tsk[1].format(**v) + "Ответ: " + str(res['tsk']) + "\n")
     else:
-        return str("    Задание: " + str(task[1]) + tsk[1].format(**v) + "\n"), str(res['tsk'])
+        return str("    Задание: " + str(tsk[0]) + tsk[1].format(**v) + "\n"), str(res['tsk'])
 
 
-print(F('t1', 'v5', True))
-print(F('t1', 'v5', False)[0])
+#print(F('t1', 'v5', True))
+#print(F('t1', 'v5', False)[0])

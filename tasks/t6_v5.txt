@@ -26,8 +26,8 @@ def task6_v5():
     v.update({'v0': number, 'v1': number, 'v2': number})
 
     # update result
-    res.update({'a)': resultA, 'b)': resultB, 'c)': resultC})
-
+    #res.update({'tsk': str("а) "+str(resultA)+"б) "+str(resultB)+"в) "+str(resultC))})
+    res.update({'tsk': f'а) {resultA}, б) {resultB}, в) {resultC}.'})
 
 task6_v5()
 
