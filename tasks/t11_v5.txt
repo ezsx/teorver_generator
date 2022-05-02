@@ -1,0 +1,23 @@
+11
+&&&
+Вероятность изготовления на автоматическом станке стандартной детали равна {v0}. Найти вероятность того, что среди {v1} изготовленных деталей {v2} будут {v3}.
+&&&
+def task11_v5():
+    items = random.randint(5, 8)
+    findItems = random.randint(1, 4)
+    kindToFind = random.choice(["бракованные", "стандартные"])
+    p = random.randint(1, 9) / 100
+    q = 1 - p
+
+    # calculation
+    temp = p * p * p * q * q if kindToFind == "стандартные" else p * p * q * q * q
+    result = math.comb(items, findItems) * temp
+
+    # update task description
+    v.update({'v0': p, 'v1': items, 'v2': findItems, 'v3': kindToFind})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task11_v5()

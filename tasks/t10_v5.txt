@@ -1,0 +1,35 @@
+10
+&&&
+Запасная деталь может находиться в одной из трех партий, содержащих {v0} деталей, {v1} деталей и {v2} деталей соответственно. Вероятности того, что деталь проработает положенное время без ремонта, равны соответственно {v3}; {v4}; {v5}. Определить вероятность того, что деталь проработавшая положенное время взята из {v6}й партии.
+&&&
+def task10_v5():
+    # партии
+    box1 = random.randint(10, 30)
+    box2 = random.randint(40, 60)
+    box3 = random.randint(30, 40)
+    boxes = box1 + box2 + box3
+
+    # партия для задания
+    chosenBox = random.randint(1, 3)
+
+    # деталь взята из определенной партии
+    h1 = box1 / boxes
+    h2 = box2 / boxes
+    h3 = box3 / boxes
+
+    # деталь проработает положенное время без ремонта
+    a_h1 = random.randint(1, 9) / 100
+    a_h2 = random.randint(1, 9) / 100
+    a_h3 = random.randint(1, 9) / 100
+
+    # деталь, которая проработает окажется из второй партии
+    result = h1 * a_h1 if chosenBox == 1 else h2 * a_h2 if chosenBox == 2 else h3 * a_h3
+
+    # update task description
+    v.update({'v0': box1, 'v1': box2, 'v2': box3, 'v3': a_h1, 'v4': a_h2, 'v5': a_h3, 'v6': chosenBox})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task10_v5()

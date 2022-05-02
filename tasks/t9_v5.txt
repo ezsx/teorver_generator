@@ -1,0 +1,34 @@
+9
+&&&
+В первом ящике из {v0} деталей {v1} бракованных, во втором из {v2} деталей {v3} бракованных. Из первого во второй переложили две детали. Найти вероятность того, что деталь, извлеченная после этого из второго ящика, бракованная.
+&&&
+def task9_v5():
+    box1 = random.randint(20, 30)
+    brokenItemsBox1 = random.randint(3, 7)
+    box2 = random.randint(30, 40)
+    brokenItemsBox2 = random.randint(3, 7)
+
+    # обе переложенные детали бракованные
+    h1 = math.comb(brokenItemsBox1, 2) / math.comb(box1, 2)
+    # одна из них бракованная
+    h2 = math.comb(brokenItemsBox1, 1) * math.comb(box1 - brokenItemsBox1, 1) / math.comb(box1, 2)
+    # обе переложенные детали качественные
+    h3 = math.comb(box1 - brokenItemsBox1, 2) / math.comb(box1, 2)
+
+    # А искомое событие — «извлеченная после перекладывания деталь — бракованная»
+    a_h1 = (brokenItemsBox2 + 2) / (box2 + 2)
+    a_h2 = (brokenItemsBox2 + 1) / (box2 + 2)
+    a_h3 = (brokenItemsBox2) / (box2 + 2)
+
+    # По формуле полной вероятности
+    result = a_h1 * h1 + a_h2 * h2 + a_h3 * h3
+
+    # update task description
+    v.update({'v0': box1, 'v1': brokenItemsBox1, 'v2': box2, 'v3': brokenItemsBox2})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task9_v5()
+

@@ -1,0 +1,27 @@
+2
+&&&
+Из группы, состоящей из {v0} мужчин и {v1} женщин, нужно выбрать {v2} человек так, чтобы среди них было не менее {v3} женщин(ы). Сколькими способами это можно сделать?
+&&&
+def task2_v5():
+    amountOfMen = random.randint(4, 10)
+    amountOfWomen = random.randint(4, 10)
+    amountToChooseFrom = random.randint(4, amountOfMen + amountOfWomen - 1)
+    amountOfWomenToChoose = random.randint(1, 4)
+
+    # update task description
+    v.update({'v0': amountOfMen, 'v1': amountOfWomen, 'v2': amountToChooseFrom, 'v3': amountOfWomenToChoose})
+
+    # calculation
+    result = 0
+    for chosenWomen in range(amountOfWomenToChoose, amountOfWomen + 1):
+        print(chosenWomen)
+        if chosenWomen > amountToChooseFrom:
+            break
+        combChooseWomen = math.comb(amountOfWomen, chosenWomen)
+        combChooseMen = math.comb(amountOfMen, amountToChooseFrom - chosenWomen)
+        result += combChooseWomen * combChooseMen
+
+    res.update({'tsk': result})
+
+
+task2_v5()
