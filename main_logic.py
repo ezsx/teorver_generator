@@ -1,6 +1,7 @@
 import random
 import itertools
 import math
+from decimal import Decimal, ROUND_FLOOR
 
 res = {}
 v = {}
