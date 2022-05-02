@@ -18,7 +18,7 @@ def task7_v5():
     v.update({'v0': p1, 'v1': p3})
 
     # update result
-    res.update({'a)': resultA, 'b)': resultB, 'c)': resultC})
+    res.update({'tsk': f'а) {resultA}, б) {resultB}, в) {resultC}.'})
 
 
 task7_v5()
