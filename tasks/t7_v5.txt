@@ -10,9 +10,9 @@ def task7_v5():
     q2 = 1 - p2
     q3 = 1 - p3
 
-    resultA = p1 * p2 * p3
-    resultB = p1 * p2 * q3 + p1 * q2 * p3 + q1 * p2 * p3
-    resultC = resultA + resultB
+    resultA = Decimal(f"{p1 * p2 * p3}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultB = Decimal(f"{p1 * p2 * q3 + p1 * q2 * p3 + q1 * p2 * p3}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultC = Decimal(f"{resultA + resultB}").quantize(Decimal("1.00"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': p1, 'v1': p3})

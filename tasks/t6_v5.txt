@@ -18,15 +18,15 @@ def task6_v5():
                 m2 += 1
             if (i * j) % number != 0:
                 m3 += 1
-    resultA = m1 / n
-    resultB = m2 / n
-    resultC = m3 / n
+    resultA = Decimal(f"{m1 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultB = Decimal(f"{m2 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultC = Decimal(f"{m3 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': number, 'v1': number, 'v2': number})
 
     # update result
-    res.update({'a)': resultA, 'b)': resultB, 'c)': resultC})
+    res.update({'tsk': f'a) {resultA}, б) {resultB}, с) {resultC}'})
 
 
 task6_v5()
