@@ -1,13 +1,21 @@
 from tkinter import *
-from tkinter import filedialog as filedialog
+from tkinter import filedialog as filedialog, ttk
 from tkinter import messagebox as mb
+from tkinter.ttk import Style
+import tkinter.font as tkFont
 
 import arr_generate
 import write_docx
 import re
 # You can manually specify the number of replacements by changing the 4th argument
 
-
+def darkstyle(root):
+    style = ttk.Style(root)
+    root.tk.call('source', 'azure dark/azure dark.tcl')
+    style.theme_use('azure')
+    style.configure("Accentbutton", foreground='white')
+    style.configure("Togglebutton", foreground='white')
+    return style
 
 def choose_dir():
     path.insert(0,filedialog.askdirectory())
@@ -21,7 +29,7 @@ def clicked():
     result = re.sub(regex, "", ss, 0, re.MULTILINE)
 
     if result:
-        mb.askokcancel(title="Ошибка",message=("Строка не распознана"))
+        m=mb.askokcancel(title="Ошибка",message=("Строка не распознана"))
         return
 
     if path.get() == "":
@@ -34,30 +42,35 @@ def clicked():
 
 
 window = Tk()
-window.title("teorver_generator")
-window.configure(bg="#808080")
-window.geometry('400x250')
+window.title("Генератор вариантов")
+#window.configure(bg="#808080")
+window.geometry('490x160')
+
+style = darkstyle(window)
+
+fontEx = tkFont.Font(family="google sans", size=12, weight="bold", slant="italic")
+fontEx1= tkFont.Font(family="google sans", size=12, weight="normal", slant="roman")
+
+lbl1 = Label(window, text="Задания",font=fontEx)
+lbl1.grid(column=0, row=0, pady=8,padx=5)
 
 
-lbl1 = Label(window, text="Задания")
-lbl1.grid(column=0, row=0)
+lbl2 = Label(window, text="Количество вариантов",font=fontEx)
+lbl2.grid(column=0, row=1, pady=8,padx=5)
 
-lbl2 = Label(window, text="Количество вариантов")
-lbl2.grid(column=0, row=1)
+lbl3 = Label(window, text="Путь к результату",font=fontEx)
+lbl3.grid(column=0, row=2, pady=8,padx=5)
 
-lbl3 = Label(window, text="Путь к результату")
-lbl3.grid(column=0, row=2)
+tasks = Entry(window, width=30,font=fontEx1)
+tasks.grid(column=1, row=0,)
 
-tasks = Entry(window, width=30)
-tasks.grid(column=1, row=0)
-
-variants = Entry(window, width=30)
+variants = Entry(window, width=30,font=fontEx1)
 variants.grid(column=1, row=1)
 
-path = Entry(window, width=30)
+path = Entry(window, width=30,font=fontEx1)
 path.grid(column=1, row=2)
 
-generate = Button(window, text="сгенерировать", command=clicked)
+generate = Button(window, text="сгенерировать",font=fontEx, command=clicked)
 generate.grid(column=1, row=3)
 
 

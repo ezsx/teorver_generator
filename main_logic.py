@@ -1,10 +1,8 @@
 import random
 import itertools
 import math
-
 res = {}
 v = {}
-
 
 def F(task, variant, answer):
     contents = ''
@@ -12,15 +10,8 @@ def F(task, variant, answer):
               encoding='utf-8') as f:
         contents = f.read()
     tsk = contents.split('&&&')
-    # 1)что компилируем 2)как называем 3)в каком "моде" компилим
-    x = compile(tsk[2], 'test', 'exec')
-    exec(x)
-
+    exec(compile(tsk[2], 'test', 'exec')) # 1) что компилируем 2) как называем 3) в каком "моде" компилим
     if answer:
         return str("    Задание: " + str(tsk[1]) + tsk[1].format(**v) + "Ответ: " + str(res['tsk']) + "\n")
     else:
         return str("    Задание: " + str(tsk[0]) + tsk[1].format(**v) + "\n"), str(res['tsk'])
-
-
-#print(F('t1', 'v5', True))
-#print(F('t1', 'v5', False)[0])
