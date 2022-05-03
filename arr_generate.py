@@ -3,7 +3,8 @@
 # 1, 2, 3, 4, 5
 # 1-2,3
 def F(str):
-
+    if str=='':
+        return [x for x in range(1,17)]
     str = str.replace(' ', '')  # "1-5,6"
     arr_str = str.split(',')    # ['1-5', '6']
     arr_res = []
