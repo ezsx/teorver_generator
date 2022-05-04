@@ -22,6 +22,7 @@ def task9_v5():
 
     # По формуле полной вероятности
     result = a_h1 * h1 + a_h2 * h2 + a_h3 * h3
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': box1, 'v1': brokenItemsBox1, 'v2': box2, 'v3': brokenItemsBox2})
