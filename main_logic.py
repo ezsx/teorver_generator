@@ -12,6 +12,6 @@ def F(task, variant, answer):
     tsk = contents.split('&&&')
     exec(compile(tsk[2], 'test', 'exec')) # 1) что компилируем 2) как называем 3) в каком "моде" компилим
     if answer:
-        return str("    Задание: " + str(tsk[1]) + tsk[1].format(**v) + "Ответ: " + str(res['tsk']) + "\n")
+        return str("    Задание: " + str(tsk[1]) + tsk[1].format(**v) + "Ответ: " + str(res['tsk']))
     else:
-        return str("    Задание: " + str(tsk[0]) + tsk[1].format(**v) + "\n"), str(res['tsk'])
+        return str(str("    Задание " + str(tsk[0]) + ": ") + "\r"+tsk[1].format(**v)).replace("\n",""), str(res['tsk'])
