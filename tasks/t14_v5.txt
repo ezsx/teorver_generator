@@ -4,10 +4,10 @@
 &&&
 def task14_v5():
     n = random.randint(800, 1200)
-    p = random.randint(30, 60) / 10
+    p = random.randint(30, 60) / 100
     q = 1 - p
     x = random.randint(11, 450) / 100
-    expectedResultOfLaplaceFunction = scipy.stats.norm.cdf(x) - 0.5 # for description
+    expectedResultOfLaplaceFunction = math.fabs(scipy.stats.norm.cdf(x) - 0.5) # for description
 
     # calculation
     m = x * math.sqrt(n*p*q) + n*p
