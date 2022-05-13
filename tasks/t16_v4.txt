@@ -1,0 +1,29 @@
+16
+&&&
+Вероятность того, что человек в период страхования будет травмирован, равна {v0}. Компанией застраховано {v1} человек. Годовой взнос с человека составляет {v2} рублей. В случае травмы застраховавшийся получает {v3} рублей. Какими будут наивероятнейшие выплаты страховой компании в течение года? Найти вероятность этого числа.
+&&&
+def task16_v4():
+    fake1 = random.randint(50, 300)
+    fake2 = random.randint(10000, 15000)
+    n = random.randint(700, 1200)
+    q = random.randint(3, 7) / 100
+    p = 1 - q
+    rightLimit = p * n + p
+
+    # calculation
+    m = math.floor(rightLimit)
+    print(m)
+    pm = math.comb(n, m) * pow(p, m) * pow(q, n - m)
+    pm = Decimal(f"{pm}").quantize(Decimal("1.000"), ROUND_FLOOR)
+    print(pm)
+
+    result = f"Наивероятнейшее число: {m}, Вероятность этого числа: {pm}"
+
+    # update task description
+    v.update({'v0': q, 'v1': n, 'v2': fake1, 'v3': fake2})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task16_v4()
