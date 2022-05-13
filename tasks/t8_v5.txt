@@ -11,7 +11,7 @@ def task8_v5():
     m = math.comb(men, choice)
 
     result = m / n
-    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    result = Decimal(f"{result}").quantize(Decimal("1.000"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': men, 'v1': women, 'v2': choice})
