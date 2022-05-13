@@ -15,7 +15,7 @@ def task14_v5():
     # calculation
     while math.fabs((scipy.stats.norm.cdf(x) - 0.5) - expectedResultOfLaplaceFunction) > eps:
         print(f"F({x}) = {scipy.stats.norm.cdf(x) - 0.5}")
-        x += 0.001
+        x += 0.01
         counter += 1
 
     print(f"Calculation result: X = {x}")
