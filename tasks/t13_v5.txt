@@ -9,10 +9,11 @@ def task13_v5():
     q = 1 - p
 
     # calculation
-    x = (m - n*p) / math.sqrt(n*p*q)
-    laplaceX = math.fabs(scipy.stats.norm.cdf(x) - 0.5)
-    result = Decimal(f"{laplaceX}").quantize(Decimal("1.0000"), ROUND_FLOOR)
-    print(result)
+    x1 = (m - n * p) / math.sqrt(n * p * q)
+    x2 = (n - n * p) / math.sqrt(n * p * q)
+    laplaceX1 = scipy.stats.norm.cdf(x1) - 0.5
+    laplaceX2 = scipy.stats.norm.cdf(x2) - 0.5
+    result = Decimal(f"{laplaceX2 - laplaceX1}").quantize(Decimal("1.0000"))
 
     # update task description
     v.update({'v0': int(p*100), 'v1': n, 'v2': m})
