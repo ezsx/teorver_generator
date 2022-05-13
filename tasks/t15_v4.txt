@@ -1,0 +1,24 @@
+15
+&&&
+На судно погружено и отправлено {v0} труб. Вероятность того, что в рейсе трубы при шторме повредятся равна {v1}. Найти вероятность того, что в порт выгрузки прибудут {v2} повреждённые трубы.
+&&&
+def task15_v4():
+    n = random.randint(3, 7) * 1000
+    p = random.randint(3, 6) / 10000
+    helper = n * p  # lambda = n * p
+    k = random.randint(2, 4)
+
+    # calculation
+    result = pow(helper, k) * pow(math.e, - helper) / math.factorial(k)
+    print(result)
+    result = Decimal(f"{result}").quantize(Decimal("1.0000"), ROUND_FLOOR)
+    print(f"Result: {result}")
+
+    # update task description
+    v.update({'v0': n, 'v1': p, 'v2': k})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task15_v4()
