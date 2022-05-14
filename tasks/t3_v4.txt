@@ -1,0 +1,23 @@
+3
+&&&
+Сколько различных «слов» можно получить, переставляя буквы в слове {v0}?
+&&&
+def task3_v4():
+    n=random.randint(7,15)
+    word = getone(r'[А-Я]{%s}' % (n,) )
+    d = {a for a in word}
+    w={}
+    for i in word:
+        w.update({i : word.count(i)})
+    all_permut=math.factorial(len(word))
+    perm_count=1
+    for i in d:
+        if w[i]>1:
+            perm_count=perm_count*math.factorial(w[i])
+    result = round(all_permut/perm_count)
+    # update task description
+    v.update({'v0': word})
+    # calculation
+    res.update({'tsk': result})
+task3_v4()
+
