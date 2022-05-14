@@ -1,0 +1,35 @@
+10
+&&&
+В районе {v0} человека обучаются на заочном факультете института, их них {v1} - на мехфаке, {v2} - на агрофаке и {v3} - на экономфаке. Вероятность успешно сдать все экзамены на предстоящей сессии для студентов мехфака равна {v4}, агрофака - {v5} и для экономфака - {v6}. Найти вероятность того, что наудачу взятый студент, сдавший успешно все экзамены, окажется студентом экономфака.
+&&&
+def task10_v4():
+    c1=random.randint(4,16)
+    c2=random.randint(4,16)
+    c3=random.randint(4,16)
+
+    all=c1+c2+c3
+
+    p1=random.randint(10,90)/100
+    p2=random.randint(10,90)/100
+    p3=random.randint(10,90)/100
+
+    pch1=all/c1
+    pch2=all/c2
+    pch3=all/c3
+
+    #pp1=pch1*p1
+    #pp2=pch2*p2
+    pp3=pch3*p3
+
+    wb=pch1*p1 + pch2*p2 + pch3*p3
+
+    result=pp3/wb
+
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': all, 'v1': c1, 'v2': c2, 'v3': c3, 'v4': p1, 'v5': p2, 'v6': p3})
+
+    # update result
+    res.update({'tsk': result})
+task10_v4()

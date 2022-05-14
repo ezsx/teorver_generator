@@ -1,0 +1,17 @@
+14
+&&&
+Определить вероятность того, что для отобранных случайным образом {v0} зерен относи-тельная частота всхожести по абсолютной величине будет отличаться от вероятности взойти р={v1} не более чем на 0.1.
+&&&
+def task12_v5():
+    n=random.randint(100,1000)
+    p=random.randint(1,9)/10
+    q=1-p
+    eps=0.1
+    epq=eps*math.sqrt(n/p*q)
+    fx = lambda x: erf(x / 2 ** 0.5) / 2
+    result = 2*abs(fx(epq))
+    # update task description
+    v.update({'v0': n, 'v1': p})
+    # update result
+    res.update({'tsk': round(result,4)})
+task12_v5()

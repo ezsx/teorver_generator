@@ -1,0 +1,24 @@
+12
+&&&
+Найти вероятность того, что событие А наступит ровно {v0} раз в {v1} испытаниях, если вероятность появления этого события в каждом испытании равна {v2}.
+&&&
+def task12_v5():
+    n = random.randint(200, 300)
+    m = random.randint(50, 100)
+    p = random.randint(1, 80) / 100
+    q = 1 - p
+
+    # calculation
+    x = (m - n*p) / math.sqrt(n*p*q)
+    localLaplace = pow(math.e, - x * x / 2) / math.sqrt(2 * math.pi)
+    result = localLaplace / math.sqrt(n*p*q)
+    # result = Decimal(f"{result}").quantize(Decimal("1.000"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': m, 'v1': n, 'v2': p})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task12_v5()

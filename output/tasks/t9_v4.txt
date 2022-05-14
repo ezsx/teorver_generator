@@ -1,0 +1,25 @@
+8
+&&&
+Стрелковое отделение получило {v0} винтовок, из которых {v1} пристрелянных, {v2} нет. Вероятность попадания в цель из пристрелянной винтовки равна {v3}, а из не пристрелянной {v4}. Какова вероятность, что стрелок поразит мишень из наудачу взятой винтовки?
+&&&
+def task9_v4():
+    n = random.randint(8, 20)
+    n1 = random.randint(4,n-4)
+    n2 = n - n1
+    p1 = random.randint(2,9)/10
+    p2 = random.randint(1,int(p1*10)-1)/10
+
+
+
+    # По формуле полной вероятности
+    result = (n1/10)*p1+ (n2/10)*p2
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': n, 'v1': n1, 'v2': n2, 'v3': p1, 'v4': p2})
+    print(result)
+    # update result
+    res.update({'tsk': result})
+
+
+task9_v4()

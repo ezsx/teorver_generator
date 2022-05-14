@@ -1,0 +1,22 @@
+12
+&&&
+Вероятность поражения мишени стрелком при одном выстреле равна {v0}. Найти вероятность того, что при {v1} выстрелах стрелок поразит мишень не менее {v2} и не более {v3} раз.
+&&&
+def task12_v4():
+    p = random.randint(80,90)/100
+    n = random.randint(90, 110)
+    m1 = random.randint(int(n*0.6), int(n*0.7))
+    m2 = m1 + random.randint(5, 15)
+    q = 1 - p
+    npq=math.sqrt(n*p*q)
+    # calculation
+    x1 = abs((m1 - n*p) / npq)
+    x2 = abs((m2 - n*p) / npq)
+    fx = lambda x: erf(x / 2 ** 0.5) / 2
+    result = fx(x2) + fx(x1)
+    # update task description
+    v.update({'v0': p, 'v1': n, 'v2': m1, 'v3': m2})
+
+    # update result
+    res.update({'tsk': round(result,4)})
+task12_v4()

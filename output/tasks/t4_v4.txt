@@ -1,0 +1,13 @@
+4
+&&&
+В почтовом отделении продаются открытки {v0} видов. Сколькими способами можно приобрести в нем {v1} разных открыт(ок/ки)?
+&&&
+def task4_v4():
+    n=random.randint(4,15)
+    m=random.randint(2,n-2)
+    result=math.comb(n,m)
+    # update task description
+    v.update({'v0': n, 'v1': m})
+    # calculation
+    res.update({'tsk': result})
+task4_v4()

@@ -1,0 +1,24 @@
+14
+&&&
+Вероятность промышленного содержания металла в каждой пробе руды равна {v0}. Принимая, что событие, вероятность которого {v1}, достоверно, найти границы числа проб с промышленным содержанием металла среди {v2} проб.
+&&&
+def task14_v5():
+    n = random.randint(800, 1200)
+    p = random.randint(30, 60) / 100
+    q = 1 - p
+    x = random.randint(11, 450) / 100
+    expectedResultOfLaplaceFunction = math.fabs(scipy.stats.norm.cdf(x) - 0.5) # for description
+
+    # calculation
+    m = x * math.sqrt(n*p*q) + n*p
+    result = Decimal(f"{m}").quantize(Decimal("1.000"), ROUND_FLOOR)
+    print(result)
+
+    # update task description
+    v.update({'v0': p, 'v1': expectedResultOfLaplaceFunction, 'v2': n})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task14_v5()
