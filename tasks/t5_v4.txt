@@ -1,0 +1,12 @@
+5
+&&&
+Имеется {v0} видов овощей. Решено приготовить салат из {v1} видов. Сколько различных (по сочетанию видов овощей) вариантов салатов можно приготовить?&&&
+def task5_v4():
+    n=random.randint(4,15)
+    m=random.randint(2,n-2)
+    result=math.comb(n,m)
+    # update task description
+    v.update({'v0': n, 'v1': m})
+    # calculation
+    res.update({'tsk': result})
+task5_v4()

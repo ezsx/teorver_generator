@@ -1,0 +1,24 @@
+8
+&&&
+Из {v0} токарных станков цеха {v1} снабжены числовым программным управлением. Чему равна вероятность того, что {v2} наудачу выбранных станка снабжены устройством числового программного управления.
+&&&
+def task8_v5():
+    stanok = random.randint(4, 10)
+    stanok_electr = random.randint(4, 10)
+    all=stanok+stanok_electr
+    choice = random.randint(2, 4)
+
+    n = math.comb(stanok + stanok_electr, choice)
+    m = math.comb(stanok_electr, choice)
+
+    result = m / n
+    result = Decimal(f"{result}").quantize(Decimal("1.000"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': all, 'v1': stanok_electr, 'v2': choice})
+
+    # update result
+    res.update({'tsk': result})
+
+
+task8_v5()

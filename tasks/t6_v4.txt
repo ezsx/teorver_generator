@@ -1,0 +1,33 @@
+6
+&&&
+Бросаются две игральные кости. Определить вероятность того, что: а) сумма числа очков не превосходит {v0}; б) произведение числа очков не превосходит {v1}; в) произведение числа очков делится на {v2}.
+&&&
+def task6_v5():
+    n = 36
+    number = random.randint(4, 8)
+    m1 = 0
+    m2 = 0
+    m3 = 0
+
+    # calculation
+    for i in range(1, 7):
+        for j in range(1, 7):
+            if i + j > number:
+                m1 += 1
+            if i * j > number:
+                m2 += 1
+            if (i * j) % number != 0:
+                m3 += 1
+    resultA = 1-Decimal(f"{m1 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultB = 1-Decimal(f"{m2 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultC = 1-Decimal(f"{m3 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': number, 'v1': number, 'v2': number})
+
+    # update result
+    res.update({'tsk': f'a) {resultA}, б) {resultB}, с) {resultC}'})
+
+
+task6_v5()
+

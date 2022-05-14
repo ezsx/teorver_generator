@@ -24,7 +24,7 @@ def task10_v5():
 
     # деталь, которая проработает окажется из второй партии
     result = h1 * a_h1 if chosenBox == 1 else h2 * a_h2 if chosenBox == 2 else h3 * a_h3
-    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    result = Decimal(f"{result}").quantize(Decimal("1.0000"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': box1, 'v1': box2, 'v2': box3, 'v3': a_h1, 'v4': a_h2, 'v5': a_h3, 'v6': chosenBox})

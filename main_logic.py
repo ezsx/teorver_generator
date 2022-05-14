@@ -2,6 +2,10 @@ import random
 import itertools
 import math
 from decimal import Decimal, ROUND_FLOOR
+import scipy
+from scipy import stats
+from scipy.special import erf
+from exrex import getone
 import os
 res = {}
 v = {}

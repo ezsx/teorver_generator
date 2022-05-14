@@ -14,6 +14,7 @@ def task2_v5():
     # calculation
     result = 0
     for chosenWomen in range(amountOfWomenToChoose, amountOfWomen + 1):
+        print(chosenWomen)
         if chosenWomen > amountToChooseFrom:
             break
         combChooseWomen = math.comb(amountOfWomen, chosenWomen)

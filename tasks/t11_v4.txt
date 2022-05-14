@@ -1,0 +1,18 @@
+11
+&&&
+Установлено, что виноградник поражен вредителями в среднем на {v0}%. Определить веро-ятность того, что из {v1} проверенных кустов, винограда поражен только {v2} куст(ов).
+&&&
+def task11_v4():
+    p=random.randint(1,9)/10
+    q=1-p
+    k1=random.randint(5,20)
+    k2=random.randint(1,4)
+    result=math.comb(k1,k2)*math.pow(p,k2)*math.pow(q,k1-k2)
+    result = Decimal(f"{result}").quantize(Decimal("1.00"), ROUND_FLOOR)
+
+    # update task description
+    v.update({'v0': round(p*100), 'v1': k1, 'v2': k2})
+
+    # update result
+    res.update({'tsk': result})
+task11_v4()
