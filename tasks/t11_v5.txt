@@ -10,11 +10,11 @@ def task11_v5():
 
     # calculation
     temp = p * p * q * q * q
-    print(f"temp: {temp}")
+
     result = math.comb(items, findItems) * temp
-    print(result)
+
     result = Decimal(f"{result}").quantize(Decimal("1.0000"), ROUND_FLOOR)
-    print(result)
+
 
     # update task description
     v.update({'v0': p, 'v1': items, 'v2': findItems})

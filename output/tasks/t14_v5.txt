@@ -19,6 +19,4 @@ def task14_v5():
 
     # update result
     res.update({'tsk': result})
-
-
 task14_v5()
