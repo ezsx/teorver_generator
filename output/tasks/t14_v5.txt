@@ -6,17 +6,22 @@ def task14_v5():
     n = random.randint(800, 1200)
     p = random.randint(30, 60) / 100
     q = 1 - p
+    temp = math.sqrt(n / (p * q))
     x = random.randint(11, 450) / 100
-    expectedResultOfLaplaceFunction = math.fabs(scipy.stats.norm.cdf(x) - 0.5) # for description
 
     # calculation
-    m = x * math.sqrt(n*p*q) + n*p
-    result = Decimal(f"{m}").quantize(Decimal("1.000"), ROUND_FLOOR)
-    print(result)
+    eps = x / temp
+    expectedResultOfLaplaceFunction = math.fabs(stats.norm.cdf(x) - 0.5) * 2 # for description
+    expectedResultOfLaplaceFunction = Decimal(f"{expectedResultOfLaplaceFunction}").quantize(Decimal("1.0000"))
+    left = (-eps + p) * n
+    right = (eps + p) * n
+
+    result = f"от {int(left)} до {int(right)}"
 
     # update task description
     v.update({'v0': p, 'v1': expectedResultOfLaplaceFunction, 'v2': n})
 
     # update result
     res.update({'tsk': result})
+
 task14_v5()

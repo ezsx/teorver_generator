@@ -4,14 +4,13 @@
 &&&
 def task7_v4():
     p = random.randint(30, 80) / 100
-    n = random.randint(5, 25)
-    k = random.randint(2, n-3)
+    n = random.randint(10, 25)
+    k = round(n / 2)
 
     result=round(math.comb(n,k)*math.pow(p,k)*math.pow(1-p,n-k),4)
     # update task description
     v.update({'v0': p, 'v1': n, 'v2': k})
-    print(p,n,k)
-    print(result)
+
     # update result
     res.update({'tsk': result})
 task7_v4()

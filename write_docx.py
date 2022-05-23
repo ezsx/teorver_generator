@@ -1,5 +1,4 @@
 import docx
-
 import arr_generate
 import main_logic
 import random
@@ -7,6 +6,8 @@ def F(tasks, v , path, uniq_var): # массив заданий # количес
     doc = docx.Document()
     answers = []
     variants = [x for x in range(1, v+1)] # 1-10
+    print(variants)
+    print(tasks)
     for j in variants: # сколько вариантов генерим
         doc.add_paragraph("                                                                            Вариант: "+str(j))
         ans=[]
@@ -19,11 +20,12 @@ def F(tasks, v , path, uniq_var): # массив заданий # количес
     doc.save(path+'/variants.docx')
 
     doc_answer = docx.Document()
-    doc_answer.add_paragraph("Ответы: ")
-    for j in variants:
-        doc_answer.add_paragraph("                                                                            Вариант: " + str(j))
-        for i in tasks:
-            doc_answer.add_paragraph(str(str(i) + ") " + answers[j-1][i-1]))
+    for j in range(0,len(variants)):
+        doc_answer.add_paragraph("                                                                            Вариант: " + str(j+1))
+        for i in range(0,len(tasks)):
+            print(answers)
+            print(len(answers))
+            print(j-1,i-1)
+            doc_answer.add_paragraph(str(str(tasks[i]) + ") " + answers[j][i]))
         doc_answer.paragraphs[-1].runs[0].add_break(docx.enum.text.WD_BREAK.PAGE)  # разрыв страницы
     doc_answer.save(path+'/variants_answers.docx')
-#F(arr_generate.F('1-10'), 10, "C:/Users/scdco/Documents/My Cheat Tables")

@@ -17,7 +17,7 @@ def task9_v4():
 
     # update task description
     v.update({'v0': n, 'v1': n1, 'v2': n2, 'v3': p1, 'v4': p2})
-    print(result)
+
     # update result
     res.update({'tsk': result})
 

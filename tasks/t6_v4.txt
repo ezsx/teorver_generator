@@ -16,11 +16,11 @@ def task6_v5():
                 m1 += 1
             if i * j > number:
                 m2 += 1
-            if (i * j) % number != 0:
+            if (i * j) % number == 0:
                 m3 += 1
     resultA = 1-Decimal(f"{m1 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
     resultB = 1-Decimal(f"{m2 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
-    resultC = 1-Decimal(f"{m3 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
+    resultC = Decimal(f"{m3 / n}").quantize(Decimal("1.00"), ROUND_FLOOR)
 
     # update task description
     v.update({'v0': number, 'v1': number, 'v2': number})

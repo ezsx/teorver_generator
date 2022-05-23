@@ -2,9 +2,9 @@
 &&&
 Вероятность появления события в каждом испытании равна {v0}. Найти вероятность того, что событие наступит {v1} раз в {v2} испытаниях.
 &&&
-def task12_v5():
+def task12_v4():
     n = random.randint(50, 2000)
-    m = random.randint(49, int(n/2))
+    m = random.randint(24, int(n/2))
     p = random.randint(25,50)/100
     q = 1 - p
 
@@ -12,11 +12,13 @@ def task12_v5():
     x = abs((m - n*p) / math.sqrt(n*p*q))
 
     fx = lambda x: erf(x / 2 ** 0.5) / 2
-    result = fx(x) / math.sqrt(n*p*q)
+    fxx = round(fx(x),4)
+    p_res=round(math.sqrt(n*p*q),4)
+    result = f"Ф({fxx})/sqrt(n*p*q)"+" = "+str(round((fxx / p_res),4))
 
     # update task description
     v.update({'v0': p, 'v1': m, 'v2': n})
 
     # update result
-    res.update({'tsk': round(result,4)})
-task12_v5()
+    res.update({'tsk': result})
+task12_v4()

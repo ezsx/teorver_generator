@@ -3,6 +3,7 @@ from tkinter import filedialog as filedialog, ttk
 from tkinter import messagebox as mb
 import tkinter.font as tkFont
 
+import main_logic
 import arr_generate
 import write_docx
 import re

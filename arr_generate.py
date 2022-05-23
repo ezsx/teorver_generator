@@ -9,4 +9,5 @@ def F(str):
             arr_res += [x for x in range(int((id.split('-'))[0]), int((id.split('-'))[1])+1)]
         else:
             arr_res += [int(id)]
+    print(arr_res)
     return arr_res

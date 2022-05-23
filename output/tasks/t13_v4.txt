@@ -1,4 +1,4 @@
-12
+13
 &&&
 Вероятность поражения мишени стрелком при одном выстреле равна {v0}. Найти вероятность того, что при {v1} выстрелах стрелок поразит мишень не менее {v2} и не более {v3} раз.
 &&&
@@ -13,10 +13,13 @@ def task12_v4():
     x1 = abs((m1 - n*p) / npq)
     x2 = abs((m2 - n*p) / npq)
     fx = lambda x: erf(x / 2 ** 0.5) / 2
-    result = fx(x2) + fx(x1)
+    pr_r=" = "+str(round((fx(x2) + fx(x1)),4))
+    x1 = Decimal(f"{x1}").quantize(Decimal("1.0000"))
+    x2 = Decimal(f"{x2}").quantize(Decimal("1.0000"))
+    result = f"Ф({x2}) + Ф({x1})"+pr_r
     # update task description
     v.update({'v0': p, 'v1': n, 'v2': m1, 'v3': m2})
 
     # update result
-    res.update({'tsk': round(result,4)})
+    res.update({'tsk': result})
 task12_v4()

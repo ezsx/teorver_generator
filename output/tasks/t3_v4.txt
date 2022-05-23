@@ -3,8 +3,8 @@
 Сколько различных «слов» можно получить, переставляя буквы в слове {v0}?
 &&&
 def task3_v4():
-    n=random.randint(7,15)
-    word = getone(r'[А-Я]{%s}' % (n,) )
+    wordArray = ["РУЧКА", "СТУЛ", "НЕБО", "СОЛНЦЕ", "ФЛЕШКА", "ТЕТРАДЬ", "КАРАНДАШ", "НОУТБУК", "АВАНПОСТ"]
+    word = random.choices(wordArray, k=1)[0]
     d = {a for a in word}
     w={}
     for i in word:

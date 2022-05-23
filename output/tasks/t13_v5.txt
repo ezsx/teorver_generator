@@ -11,15 +11,18 @@ def task13_v5():
     # calculation
     x1 = (m - n * p) / math.sqrt(n * p * q)
     x2 = (n - n * p) / math.sqrt(n * p * q)
-    laplaceX1 = scipy.stats.norm.cdf(x1) - 0.5
-    laplaceX2 = scipy.stats.norm.cdf(x2) - 0.5
-    result = Decimal(f"{laplaceX2 - laplaceX1}").quantize(Decimal("1.0000"))
+    #laplaceX1 = scipy.stats.norm.cdf(x1) - 0.5
+    #laplaceX2 = scipy.stats.norm.cdf(x2) - 0.5
+    fx = lambda x: erf(x / 2 ** 0.5) / 2
+    pr_r=" = "+str(round((fx(x2) + fx(x1)),4))
+    x1 = Decimal(f"{x1}").quantize(Decimal("1.0000"))
+    x2 = Decimal(f"{x2}").quantize(Decimal("1.0000"))
+    result = f"Ф({x2}) + Ф({x1})"+pr_r
 
     # update task description
     v.update({'v0': int(p*100), 'v1': n, 'v2': m})
 
     # update result
     res.update({'tsk': result})
-
 
 task13_v5()

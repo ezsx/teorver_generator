@@ -5,21 +5,15 @@
 def task12_v5():
     n = random.randint(50, 2000)
     m = random.randint(49, n - 1)
-    p = float(m) / float(n)
+    p = round((float(m) / float(n)),4)
     q = 1 - p
-
     # calculation
     x = (m - n*p) / math.sqrt(n*p*q)
     localLaplace = pow(math.e, - x * x / 2) / math.sqrt(2 * math.pi)
     result = localLaplace / math.sqrt(n*p*q)
-    # result = Decimal(f"{result}").quantize(Decimal("1.000"), ROUND_FLOOR)
-
+    result = round(result,4)
     # update task description
     v.update({'v0': m, 'v1': n, 'v2': p})
-
     # update result
     res.update({'tsk': result})
-
-
 task12_v5()
-бь

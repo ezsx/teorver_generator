@@ -11,7 +11,7 @@ def task14_v5():
 
     # calculation
     eps = x / temp
-    expectedResultOfLaplaceFunction = math.fabs(scipy.stats.norm.cdf(x) - 0.5) * 2 # for description
+    expectedResultOfLaplaceFunction = math.fabs(stats.norm.cdf(x) - 0.5) * 2 # for description
     expectedResultOfLaplaceFunction = Decimal(f"{expectedResultOfLaplaceFunction}").quantize(Decimal("1.0000"))
     left = (-eps + p) * n
     right = (eps + p) * n

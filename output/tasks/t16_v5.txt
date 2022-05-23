@@ -10,10 +10,10 @@ def task16_v5():
 
     # calculation
     m = math.floor(rightLimit)
-    print(m)
+
     pm = math.comb(n, m) * pow(p, m) * pow(q, n - m)
     pm = Decimal(f"{pm}").quantize(Decimal("1.000"), ROUND_FLOOR)
-    print(pm)
+
 
     result = f"Наивероятнейшее число: {m}, Вероятность этого числа: {pm}"
 
